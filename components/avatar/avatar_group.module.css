@@ -1,0 +1,17 @@
+.avatarGroup {
+    display: flex;
+    align-items: center;
+}
+
+.avatarItem {
+    border: 2px solid #5e5c5c;
+    border-radius: 50%;
+}
+
+.avatarGroup .avatarItem + .avatarItem {
+    margin-left: -12px;
+}
+
+.overflowAvatar:hover {
+    background-color: #b1ecec;
+}

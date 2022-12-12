@@ -2,6 +2,8 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 
 import { Avatar } from "./avatar";
+import { AvatarGroup as BaseAvatarGroup } from "./avatar_group";
+
 
 export default {
     title: 'Avatar',
@@ -30,5 +32,42 @@ export const WithSizes = () => {
 export const WithClickHandler = () => {
   return (
     <Avatar name="Ruphaa" onClick={() => console.log('clicked')}/>
+  )
+}
+
+export const AvatarGroup = () => {
+  const items = [
+    {name: "Ruphaa"},
+    {name: "Dk"},
+    {name: "Terry"},
+  ]
+  return (
+    <BaseAvatarGroup items={items}/>
+  )
+}
+
+export const AvatarGroupWithMax = () => {
+  const items = [
+    {name: "Ruphaa"},
+    {name: "Dk"},
+    {name: "Terry"},
+    {name: "Ganesan"},
+    {name: "Sujatha"},
+  ]
+  return (
+    <BaseAvatarGroup items={items} max={2}/>
+  )
+}
+
+export const ClickableAvatarGroupWithMax = () => {
+  const items = [
+    {name: "Ruphaa"},
+    {name: "Dk"},
+    {name: "Terry"},
+    {name: "Ganesan"},
+    {name: "Sujatha"},
+  ]
+  return (
+    <BaseAvatarGroup items={items} max={2} onClick={() => console.log('clicked')}/>
   )
 }

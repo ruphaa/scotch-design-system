@@ -4,15 +4,6 @@ import avatarStyles from "./avatar.module.css";
 import { Avatar } from "./avatar";
 import type { AvatarProps } from "./avatar";
 
-/**
- * Todo
- * 
- * - AvatarGroup with open up model or hover on top
- * 
- * https://dev.to/dio41020/react-avatar-group-a-responsive-automatically-generated-group-avatar-component-powered-by-ui-avatars-pk
- * 
- */
-
 export type AvatarItemProps = Omit<AvatarProps, "onClick" | "size">;
 
 export type AvatarGroupProps = {
@@ -20,10 +11,10 @@ export type AvatarGroupProps = {
     max?: number,
     size?: AvatarProps["size"],
     onClick?: AvatarProps["onClick"],
+    showOnHover?: "all" | "current" | "none",
 }
 
-export const AvatarGroup = ({items, max, size, onClick}: AvatarGroupProps) => {
-    const visibleAvatarsLength = max != null && items.length - max;
+export const AvatarGroup = ({items, max, size, showOnHover = "none", onClick}: AvatarGroupProps) => {
     const visibleAvatars = max ? items.slice(0, max) : items;
 
     const avatarItems = visibleAvatars.map((item, index) => {
@@ -40,7 +31,10 @@ export const AvatarGroup = ({items, max, size, onClick}: AvatarGroupProps) => {
     });
 
     return (
-        <div role="list" className={styles.avatarGroup}>
+        <div role="list" className={classnames(styles.avatarGroup, {
+          [styles.showAll]: showOnHover === "all",
+          [styles.showCurrent]: showOnHover === "current",
+        })}>
           {avatarItems}
           {max && <OverflowAvatar max={max} size={size}/>}
         </div>

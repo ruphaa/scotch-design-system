@@ -71,3 +71,28 @@ export const ClickableAvatarGroupWithMax = () => {
     <BaseAvatarGroup items={items} max={2} onClick={() => console.log('clicked')}/>
   )
 }
+
+export const ShowAllOnHoverAvatarGroup = () => {
+  const items = [
+    {name: "Ruphaa"},
+    {name: "Dk"},
+    {name: "Terry"},
+  ]
+  return (
+    <BaseAvatarGroup items={items} showOnHover="all"/>
+  )
+}
+
+export const ShowCurrentOnHoverAvatarGroup = () => {
+  const items = [
+    {name: "Rachel"},
+    {name: "Monica"},
+    {name: "Phoebe"},
+    {name: "Chandler"},
+    {name: "Joey"},
+    {name: "Ross"},
+  ]
+  return (
+    <BaseAvatarGroup items={items} showOnHover="current" onClick={() => console.log('clicked')}/>
+  )
+}

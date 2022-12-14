@@ -1,9 +1,11 @@
 .avatarGroup {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.avatarItem {
+.avatarGroup .avatarItem {
+    position: relative;
     border: 2px solid #5e5c5c;
     border-radius: 50%;
 }
@@ -12,6 +14,24 @@
     margin-left: -12px;
 }
 
+.showAll.avatarGroup .avatarItem {
+    transition: margin-left 0.2s ease-in-out 0s;
+}
+
+.showAll.avatarGroup:hover .avatarItem {
+    margin-left: 3px;
+}
+
+.showCurrent.avatarGroup .avatarItem {
+    transition: transform 0.2s ease-in-out 0s;
+}
+
+.showCurrent.avatarGroup .avatarItem:hover {
+    z-index: 5;
+    transform: translateY(-5px);
+}
+
 .overflowAvatar:hover {
     background-color: #b1ecec;
 }
+

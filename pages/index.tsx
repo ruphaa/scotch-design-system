@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Avatar } from "../components/avatar/avatar";
+import { ToastContextProvider } from '../components/toast/toastContext';
+import { ToastExample } from './components/ToastExample';
 
 export default function Home() {
   const photoUrl = "https://m.media-amazon.com/images/I/513ApFj6QgL._SR600%2C315_PIWhiteStrip%2CBottomLeft%2C0%2C35_SCLZZZZZZZ_FMpng_BG255%2C255%2C255.jpg";
@@ -15,6 +17,9 @@ export default function Home() {
 
       <main className={styles.main}>
         <Avatar name="Jerry" photo={photoUrl}/>
+        <ToastContextProvider>
+          <ToastExample/>
+        </ToastContextProvider>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
